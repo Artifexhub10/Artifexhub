@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Popup Poster</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f3f4f6;
+  }
+
+  /* Popup Background */
+  .popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s;
+    z-index: 9999;
+  }
+
+  /* When popup is active */
+  .popup.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Poster Box */
+  .popup-content {
+    position: relative;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.4s ease;
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  /* Poster Image */
+  .popup-content img {
+    width: 700px;
+    height: 800px;
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    line-height: 32px;
+    text-align: center;
+  }
+  .reg{
+   margin-left: 225px;
+   margin-top: 20px;
+   width: 35%;
+   padding: 10px;
+   font-weight: bolder;
+   border-radius: 20px;
+   box-shadow: 3px 3px 1px black;
+   cursor: pointer;
+  }
+  .reg:hover{
+    border: 3px solid red;
+    
+
+  }
+
+  /* Animation */
+  @keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Poster Popup -->
+<div class="popup" id="posterPopup">
+  <div class="popup-content">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <img src="poster.jfif" alt="Poster" />
+    <button class="reg" id="reg" onclick="redirect()">REGISTER</button>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    const popup = document.getElementById("posterPopup");
+    const closeBtn = document.getElementById("closeBtn");
+   
+    // Show popup automatically after 1 second
+    setTimeout(() => {
+      popup.classList.add("active");
+    }, 1000);
+
+    // Close popup when close button clicked
+    closeBtn.addEventListener("click", () => {
+      popup.classList.remove("active");
+    });
+
+    // Close popup when clicked outside image
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) {
+        popup.classList.remove("active");
+      }
+    });
+  });
+   function redirect() {
+      window.location.href = "https://docs.google.com/forms/d/1s8VYVfDpuGvFi_6Rm5oDnZDLB90aC3lMkxg2GA3RAD4/viewform?chromeless=1&edit_requested=true"; // Redirects to another site
+    }
+</script>
+
+</body>
+</html>
