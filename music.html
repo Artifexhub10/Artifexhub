@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating Emoji Background</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #001f3f; /* background color */
+      height: 100vh;
+      font-size: 2rem;
+    }
+
+    .emoji {
+      position: absolute;
+      bottom: -50px;
+      animation: rise 10s linear infinite;
+      user-select: none;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Replace with your favorite emojis 👇 -->
+  <div class="emoji" style="left: 10%; animation-duration: 7s;">🎼</div>
+  <div class="emoji" style="left: 25%; animation-duration: 9s;">🎶</div>
+  <div class="emoji" style="left: 40%; animation-duration: 8s;">🎵</div>
+  <div class="emoji" style="left: 55%; animation-duration: 6s;">🎼</div>
+  <div class="emoji" style="left: 70%; animation-duration: 10s;">🎶</div>
+  <div class="emoji" style="left: 85%; animation-duration: 7.5s;">🎵</div>
+  <div class="emoji" style="left: 90%; animation-duration: 8.5s;">🎼</div>
+  <!-- Replace with your favorite emojis 👇 -->
+  <div class="emoji" style="left: 20%; animation-duration: 7s;">🎶</div>
+  <div class="emoji" style="left: 35%; animation-duration: 9s;">🎵</div>
+  <div class="emoji" style="left: 45%; animation-duration: 8s;">🎼</div>
+  <div class="emoji" style="left: 55%; animation-duration: 6s;">🎶</div>
+  <div class="emoji" style="left: 75%; animation-duration: 10s;">🎵</div>
+  <div class="emoji" style="left: 85%; animation-duration: 7.5s;">🎼</div>
+  <div class="emoji" style="left: 95%; animation-duration: 8.5s;">🎶</div>
+  
+  <script>
+    // Give each emoji a random delay to make the animation natural
+    document.querySelectorAll('.emoji').forEach(emoji => {
+      emoji.style.animationDelay = `${Math.random() * 0.05}s`;
+    });
+  </script>
+</body>
+</html>
